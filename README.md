@@ -1,30 +1,30 @@
-# Aviabot Shared Core
+# Shared Core Library
 
-Общие типы данных и интерфейсы для микросервисов Aviabot.
+Общие типы и интерфейсы для всех микросервисов.
+
+## Назначение
+
+- Общие типы ошибок (BusinessRuleError, ValidationError)
+- Базовые интерфейсы
+- Общие константы и типы
+- Переиспользуемые структуры данных
 
 ## Содержимое
 
-- `domain/errors` - Общие типы ошибок (BusinessRuleError, ValidationError)
-- `domain/interfaces` - Базовые интерфейсы (IDGenerator)
+- `domain/errors/` - типы ошибок
+- `domain/interfaces/` - базовые интерфейсы
 
 ## Использование
 
 ```go
-import (
-    "github.com/KamnevVladimir/aviabot-shared-core/domain/errors"
-    "github.com/KamnevVladimir/aviabot-shared-core/domain/interfaces"
-)
+import "github.com/KamnevVladimir/aviabot-shared-core/domain/errors"
+
+// Создание ошибки
+err := errors.NewBusinessRuleError("Invalid request")
+err := errors.NewValidationError("Missing required field")
 ```
 
 ## Версионирование
 
-Используется семантическое версионирование (SemVer):
-- v1.0.0 - Первая стабильная версия
-- v1.1.0 - Новые функции (обратно совместимо)
-- v2.0.0 - Breaking changes
-
-## Установка
-
-```bash
-go get github.com/KamnevVladimir/aviabot-shared-core@v1.0.0
-```
+- v1.0.1 - текущая версия
+- Используется во всех микросервисах
